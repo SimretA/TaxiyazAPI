@@ -19,8 +19,8 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private  long user_id;
-    private long route_id;
+    private  long userId;
+    private long routeId;
     private String comment;
 
 

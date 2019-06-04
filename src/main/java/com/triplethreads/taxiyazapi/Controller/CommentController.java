@@ -14,7 +14,7 @@ public class CommentController {
 
     @GetMapping("/{route_id}")
     public Iterable<Comment> getAll(@PathVariable("route_id") long route_id){
-        return commentRepository.findByRoute_id(route_id);
+        return commentRepository.findByRouteId(route_id);
     }
 
     @PostMapping("")
