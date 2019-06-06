@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 @Data
 @NoArgsConstructor
@@ -16,20 +17,28 @@ import javax.persistence.*;
 public class Route {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long Id;
+    private long routeId;
 
     private String title;
-
-    @ManyToOne
-   private Location start;
-
-    @ManyToOne
-   private Location destination;
 
     private int hops;
 
     private double price;
 
-    private double rating;
+
+    private ArrayList<Location> locations;
+
+//    @ManyToOne
+//   private Location start;
+//
+//    @ManyToOne
+//   private Location destination;
+//
+//
+//
+//
+//
+//    private double rating;
+
 
 }

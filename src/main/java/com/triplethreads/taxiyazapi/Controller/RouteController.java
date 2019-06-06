@@ -40,12 +40,6 @@ public class RouteController {
             temp.setTitle(route.getTitle());
         }
         temp.setHops(route.getHops());
-        if(route.getDestination() != null){
-            temp.setDestination(route.getDestination());
-        }
-        if(route.getStart() != null){
-            temp.setDestination(route.getStart());
-        }
 
         temp.setPrice(route.getPrice());
 

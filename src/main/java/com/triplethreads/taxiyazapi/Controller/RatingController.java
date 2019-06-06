@@ -24,12 +24,12 @@ public class RatingController {
 
     @PostMapping("/{rating}")
     public void addRating(@PathVariable("rating")int rating, @RequestBody Rate rate){
-        if(rateRepository.findByRouteAndUser(rate.getRoute().getId(), rate.getUser().getPhone_no()) == null){
-            rateRepository.save(rate);
-            Route temp = routeRepository.findById(rate.getRoute().getId());
-            temp.setRating((temp.getRating()+rating)/2);
-            routeRepository.save(temp);
-        }
+//        if(rateRepository.findByRouteAndUser(rate.getRoute().getId(), rate.getUser().getPhone_no()) == null){
+//            rateRepository.save(rate);
+//            Route temp = routeRepository.findById(rate.getRoute().getId());
+//            temp.setRating((temp.getRating()+rating)/2);
+//            routeRepository.save(temp);
+//        }
 
     }
 }
