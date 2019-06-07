@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/comment")
+@RequestMapping("/api/comment")
 public class CommentController {
 
     @Autowired
@@ -14,7 +14,7 @@ public class CommentController {
 
     @GetMapping("/{route_id}")
     public Iterable<Comment> getAll(@PathVariable("route_id") long route_id){
-        return commentRepository.findByRouteId(route_id);
+        return commentRepository.findCommentsByRouteId(route_id);
     }
 
     @PostMapping("")

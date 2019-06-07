@@ -9,11 +9,13 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Location {
+public class Node {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    private String name;
 
     private double latitude;
 

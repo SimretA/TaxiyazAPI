@@ -4,9 +4,13 @@ package com.triplethreads.taxiyazapi.Model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Target;
+
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
+
 
 @Data
 @NoArgsConstructor
@@ -21,24 +25,23 @@ public class Route {
 
     private String title;
 
+    @OneToOne
+    @JoinColumn(name = "start_node_id")
+    private Node start;
+
+    @OneToOne
+    @JoinColumn(name = "dest_node_id")
+    private Node destination;
+
     private int hops;
 
     private double price;
 
+    @ManyToMany(targetEntity = Node.class)
+    private List<Node> stops = new ArrayList<>();
 
-    private ArrayList<Location> locations;
 
-//    @ManyToOne
-//   private Location start;
-//
-//    @ManyToOne
-//   private Location destination;
-//
-//
-//
-//
-//
-//    private double rating;
+
 
 
 }

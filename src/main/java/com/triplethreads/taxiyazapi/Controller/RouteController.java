@@ -3,6 +3,7 @@ package com.triplethreads.taxiyazapi.Controller;
 import com.triplethreads.taxiyazapi.Model.Route;
 import com.triplethreads.taxiyazapi.Repository.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -20,12 +21,21 @@ public class RouteController {
 
     @GetMapping("")
     public Iterable<Route> getRouteByTitle(@RequestParam(name = "title") String title){
-        return routeRepository.findRoutesByTitleOrderByPrice(title);
+        System.out.println(title);
+        return routeRepository.findRoutesByTitle(title);
+    }
+
+    @GetMapping("/dest")
+    public Iterable<Route> getRouteByStartAndDestination(@RequestParam("dest_id") long dest_id, @RequestParam("start_id") long start_id){
+        return routeRepository.findRoutesByDestination(dest_id, start_id);
     }
 
     @PostMapping("")
-    public void addRoute(@RequestBody Route route){
-        routeRepository.save(route);
+    public ResponseEntity<?> addRoute(@RequestBody Route route){
+
+        Route temp = routeRepository.save(route);
+        return ResponseEntity.ok()
+                .body(temp);
 
     }
     @DeleteMapping("/{id}")
@@ -45,6 +55,7 @@ public class RouteController {
 
 
     }
+
 
 
 
