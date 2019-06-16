@@ -1,6 +1,8 @@
 package com.triplethreads.taxiyazapi.Controller;
 
+import com.triplethreads.taxiyazapi.Model.NodeConnection;
 import com.triplethreads.taxiyazapi.Model.Route;
+import com.triplethreads.taxiyazapi.Repository.NodeConnectionRepository;
 import com.triplethreads.taxiyazapi.Repository.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 public class RouteController {
     @Autowired
     private RouteRepository routeRepository;
+    @Autowired
+    private NodeConnectionRepository nodeConnectionRepository;
 
     @GetMapping("/all")
     public Iterable<Route> getAllRoutes(){
@@ -31,11 +35,10 @@ public class RouteController {
     }
 
     @PostMapping("")
-    public ResponseEntity<?> addRoute(@RequestBody Route route){
+    public ResponseEntity<?> addRoute(@RequestBody NodeConnection nodeConnection){
 
-        Route temp = routeRepository.save(route);
-        return ResponseEntity.ok()
-                .body(temp);
+         nodeConnectionRepository.save(nodeConnection);
+        return ResponseEntity.ok().build();
 
     }
     @DeleteMapping("/{id}")

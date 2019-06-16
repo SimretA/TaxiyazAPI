@@ -16,4 +16,6 @@ public class Rate {
 
     @ManyToOne
     private Route route;
+
+    private double rate;
 }

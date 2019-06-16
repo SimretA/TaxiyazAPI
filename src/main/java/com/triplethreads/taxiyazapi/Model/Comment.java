@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 
 @Entity
@@ -20,11 +21,13 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private  long userId;
+    private  String userId;
 
     private long routeId;
 
     private String comment;
+
+    private Date date;
 
 
 }

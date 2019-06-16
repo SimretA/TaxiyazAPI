@@ -35,6 +35,7 @@ public class NodeController {
 
     @PostMapping()
     public Node addNode(@RequestBody Node node){
+
         return nodeRepository.save(node);
     }
     @DeleteMapping("/{id}")
