@@ -1,4 +1,4 @@
-package com.triplethreads.taxiyazapi.Model;
+package com.triplethreads.taxiyazapi.model;
 
 import lombok.Data;
 

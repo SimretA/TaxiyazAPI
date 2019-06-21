@@ -1,15 +1,10 @@
-package com.triplethreads.taxiyazapi.Model;
-
+package com.triplethreads.taxiyazapi.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Target;
-
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Data
@@ -39,11 +34,6 @@ public class Route {
 
     private double rating;
 
-    @ManyToMany(targetEntity = Node.class)
-    private List<Node> stops = new ArrayList<>();
-
-
-
-
-
+    @OneToOne
+    private RoutingNodes routingNodes;
 }

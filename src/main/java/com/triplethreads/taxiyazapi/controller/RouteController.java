@@ -1,9 +1,9 @@
-package com.triplethreads.taxiyazapi.Controller;
+package com.triplethreads.taxiyazapi.controller;
 
-import com.triplethreads.taxiyazapi.Model.NodeConnection;
-import com.triplethreads.taxiyazapi.Model.Route;
-import com.triplethreads.taxiyazapi.Repository.NodeConnectionRepository;
-import com.triplethreads.taxiyazapi.Repository.RouteRepository;
+import com.triplethreads.taxiyazapi.model.AvailableNode;
+import com.triplethreads.taxiyazapi.model.Route;
+import com.triplethreads.taxiyazapi.repository.AvailableNodesRepository;
+import com.triplethreads.taxiyazapi.repository.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +13,14 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/route")
 public class RouteController {
+    private final RouteRepository routeRepository;
+    private final AvailableNodesRepository availableNodesRepository;
+
     @Autowired
-    private RouteRepository routeRepository;
-    @Autowired
-    private NodeConnectionRepository nodeConnectionRepository;
+    public RouteController(RouteRepository routeRepository, AvailableNodesRepository availableNodesRepository) {
+        this.routeRepository = routeRepository;
+        this.availableNodesRepository = availableNodesRepository;
+    }
 
     @GetMapping("/all")
     public Iterable<Route> getAllRoutes(){
@@ -35,9 +39,9 @@ public class RouteController {
     }
 
     @PostMapping("")
-    public ResponseEntity<?> addRoute(@RequestBody NodeConnection nodeConnection){
+    public ResponseEntity<?> addRoute(@RequestBody AvailableNode availableNode){
 
-         nodeConnectionRepository.save(nodeConnection);
+         availableNodesRepository.save(availableNode);
         return ResponseEntity.ok().build();
 
     }

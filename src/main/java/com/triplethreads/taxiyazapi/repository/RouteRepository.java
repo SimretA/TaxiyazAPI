@@ -1,6 +1,6 @@
-package com.triplethreads.taxiyazapi.Repository;
+package com.triplethreads.taxiyazapi.repository;
 
-import com.triplethreads.taxiyazapi.Model.Route;
+import com.triplethreads.taxiyazapi.model.Route;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

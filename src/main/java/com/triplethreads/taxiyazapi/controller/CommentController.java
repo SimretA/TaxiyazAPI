@@ -1,7 +1,7 @@
-package com.triplethreads.taxiyazapi.Controller;
+package com.triplethreads.taxiyazapi.controller;
 
-import com.triplethreads.taxiyazapi.Model.Comment;
-import com.triplethreads.taxiyazapi.Repository.CommentRepository;
+import com.triplethreads.taxiyazapi.model.Comment;
+import com.triplethreads.taxiyazapi.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/comment")
 public class CommentController {
 
+    private final CommentRepository commentRepository;
+
     @Autowired
-    private CommentRepository commentRepository;
+    public CommentController(CommentRepository commentRepository) {
+        this.commentRepository = commentRepository;
+    }
 
     @GetMapping("/{route_id}")
     public Iterable<Comment> getAll(@PathVariable("route_id") long route_id){

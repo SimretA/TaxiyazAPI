@@ -1,19 +1,22 @@
-package com.triplethreads.taxiyazapi.Controller;
+package com.triplethreads.taxiyazapi.controller;
 
-import com.triplethreads.taxiyazapi.Model.Rate;
-import com.triplethreads.taxiyazapi.Model.Route;
-import com.triplethreads.taxiyazapi.Repository.RateRepository;
-import com.triplethreads.taxiyazapi.Repository.RouteRepository;
+import com.triplethreads.taxiyazapi.model.Rate;
+import com.triplethreads.taxiyazapi.repository.RateRepository;
+import com.triplethreads.taxiyazapi.repository.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/rate")
 public class RatingController {
+    private final RateRepository rateRepository;
+    private final RouteRepository routeRepository;
+
     @Autowired
-    private RateRepository rateRepository;
-    @Autowired
-    private RouteRepository routeRepository;
+    public RatingController(RateRepository rateRepository, RouteRepository routeRepository) {
+        this.rateRepository = rateRepository;
+        this.routeRepository = routeRepository;
+    }
 
     @GetMapping("/{route_id}/{user_id}")
     public Rate getAll(@PathVariable("route_id")long route_id, @PathVariable("user_id")long user_id){

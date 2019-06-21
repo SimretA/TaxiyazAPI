@@ -1,4 +1,4 @@
-package com.triplethreads.taxiyazapi.Model;
+package com.triplethreads.taxiyazapi.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,6 +28,4 @@ public class Comment {
     private String comment;
 
     private Date date;
-
-
 }

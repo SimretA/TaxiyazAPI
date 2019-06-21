@@ -1,6 +1,6 @@
-package com.triplethreads.taxiyazapi.Repository;
+package com.triplethreads.taxiyazapi.repository;
 
-import com.triplethreads.taxiyazapi.Model.Rate;
+import com.triplethreads.taxiyazapi.model.Rate;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

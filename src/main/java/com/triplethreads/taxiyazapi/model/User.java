@@ -1,4 +1,4 @@
-package com.triplethreads.taxiyazapi.Model;
+package com.triplethreads.taxiyazapi.model;
 
 import lombok.Data;
 
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 @Data
 @Entity(name = "users")
-public class User {
+class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String phone_no;

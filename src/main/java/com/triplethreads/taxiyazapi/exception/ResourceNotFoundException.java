@@ -1,4 +1,4 @@
-package com.triplethreads.taxiyazapi.Exception;
+package com.triplethreads.taxiyazapi.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
