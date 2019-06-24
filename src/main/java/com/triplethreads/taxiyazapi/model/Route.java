@@ -34,6 +34,6 @@ public class Route {
 
     private double rating;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private RoutingNodes routingNodes;
 }
